@@ -21,9 +21,23 @@ useEffect(()=>{
 return(
   <div>
     <h2>Comments length : {comments.length}</h2>
+    {
+      comments.map(comment=> <Comment name={comment.name} email={comment.email} body={comment.body}></Comment> )
+    }
   </div>
 )
 }
+
+function Comment(props){
+  return(
+    <div id='comment'>
+      <h2>Name : {props.name}</h2>
+      <h3>Email : {props.email}</h3>
+      <p>{props.body}</p>
+    </div>
+  )
+}
+
 
 function Counter(){
   const [count,setCount] = useState(0);
